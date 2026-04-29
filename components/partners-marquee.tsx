@@ -5,7 +5,7 @@ import { Card } from "./ui/card"
 
 export function PartnersMarquee() {
 	return (
-		<section className="w-full bg-secondary py-10 sm:py-12 lg:py-16">
+		<section className="w-full py-10 sm:py-12 lg:py-16">
 			<div className="mx-auto mb-8 max-w-[1360px] px-4 sm:mb-10 lg:mb-14">
 				<h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
 					Наши партнёры:

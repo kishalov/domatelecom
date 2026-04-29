@@ -45,7 +45,7 @@ export default function RootLayout({
 	return (
 		<html lang="ru" className={montserrat.variable}>
 			<ContactFormProvider>
-			<body className="bg-primary text-black antialiased">
+			<body className="bg-secondary text-black antialiased">
 				<CityProvider>
 					{children}
 				</CityProvider>

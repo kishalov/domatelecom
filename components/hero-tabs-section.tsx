@@ -179,7 +179,7 @@ export default function HeroTabsSection() {
 	}, [api, providers])
 
 	return (
-		<section className="w-full bg-secondary py-10 sm:py-12 lg:py-16">
+		<section className="w-full py-10 sm:py-12 lg:py-16">
 			<div className="mx-auto flex w-full max-w-[1360px] flex-col gap-8 px-4 sm:gap-10 sm:px-6 lg:gap-12 lg:px-8">
 				<div className="flex flex-col items-center justify-center text-center">
 					<h1 className="mb-3 text-3xl font-bold leading-tight sm:mb-4 sm:text-4xl lg:text-5xl">
@@ -206,24 +206,24 @@ export default function HeroTabsSection() {
 						</Button>
 
 						<div className="flex w-full items-center justify-center">
-							<TabsList className="grid h-auto w-full grid-cols-1 gap-2 sm:grid-cols-3 lg:w-auto">
-								<TabsTrigger value="flat" className="w-full">
+							<TabsList className="h-auto w-full gap-2 sm:grid sm:grid-cols-3 sm:w-auto">
+								<TabsTrigger value="flat" className="w-full text-sm p-3 sm:px-12 sm:py-3 sm:text-xl">
 									В квартиру
 								</TabsTrigger>
-								<TabsTrigger value="office" className="w-full">
+								<TabsTrigger value="office" className="w-full text-sm p-3 sm:px-12 sm:py-3 sm:text-xl">
 									В офис
 								</TabsTrigger>
-								<TabsTrigger value="house" className="w-full">
+								<TabsTrigger value="house" className="w-full text-sm p-3 sm:px-12 sm:py-3 sm:text-xl">
 									В частный дом
 								</TabsTrigger>
 							</TabsList>
 						</div>
 					</div>
 
-					<Card className="w-full">
-						<CardContent className="p-4 sm:p-6">
+					<Card className="w-full p-6">
+						<CardContent className="sm:p-6">
 							<TabsContent value="flat">
-								<div className="flex w-full flex-col gap-3 lg:flex-row">
+								<div className="w-full gap-3 grid grid-cols-2 sm:flex sm:flex-row">
 									<Input
 										placeholder="Улица"
 										className="cursor-pointer text-base md:text-md"

@@ -207,10 +207,10 @@ export default function QuizSection() {
 			right: (
 				<Image
 					src="/quiz-1.svg"
-					alt=""
+					alt="Фирменный персонаж ДомаТелеком — синий кот с ярко-зелеными глазами, который задумчиво выбирает услуги связи среди парящих иконок интернета, ТВ и мобильного телефона."
 					width={500}
 					height={500}
-					className="absolute bottom-0 right-0 w-[220px] sm:w-[280px] md:-right-6 md:w-fit"
+					className="absolute bottom-0 right-0 w-[500px] sm:w-[280px] md:-right-6 md:w-fit"
 				/>
 			),
 		},
@@ -272,10 +272,10 @@ export default function QuizSection() {
 			right: (
 				<Image
 					src="/quiz-2.svg"
-					alt=""
+					alt="Фирменный синий кот ДомаТелеком с улыбкой держит на вытянутых лапах Wi-Fi роутер и ТВ-приставку. Иллюстрация наглядно сопровождает вопрос о выборе необходимого оборудования для подключения услуг."
 					width={500}
 					height={500}
-					className="absolute bottom-0 right-0 w-[220px] sm:w-[280px] md:-right-6 md:w-fit"
+					className="absolute bottom-0 right-0 w-[500px] sm:w-[280px] md:-right-6 md:w-fit"
 				/>
 			),
 		},
@@ -371,10 +371,10 @@ export default function QuizSection() {
 			right: (
 				<Image
 					src="/quiz-3.svg"
-					alt=""
+					alt="Фирменный синий кот ДомаТелеком с суровым выражением лица скрестил лапы в запрещающем жесте «стоп». Вокруг него парят логотипы различных интернет-провайдеров, что визуально подтверждает отказ от неподходящих компаний."
 					width={500}
 					height={500}
-					className="absolute -bottom-3 right-0 w-[220px] sm:w-[280px] md:-right-6 md:w-fit"
+					className="absolute -bottom-2 right-0 w-[500px] sm:w-[280px] md:-right-6 md:w-fit"
 				/>
 			),
 		},
@@ -549,90 +549,94 @@ export default function QuizSection() {
 
 	const total = slides.length
 
-	return (
-		<section className="flex flex-col bg-secondary py-10 sm:py-14 lg:py-20">
-			<div className="mx-auto flex w-full max-w-[1360px] flex-col gap-10 px-4 sm:gap-14 sm:px-6 lg:gap-20 lg:px-0">
-				<div className="flex flex-col items-center gap-4 text-center">
-					<h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-						Ответь на 5 вопросов и получи лучшее предложение среди всех провайдеров России
-					</h2>
-					<p className="max-w-5xl text-base leading-relaxed sm:text-xl lg:text-2xl">
-						Подберем домашний интернет или телевидение (или все вместе!) с оформлением подключения на удобное тебе время!
-						<br />
-						с оформлением подключения на удобное время
-					</p>
-				</div>
+return (
+        <section className="flex flex-col py-10 sm:py-14 lg:py-24">
+            {/* ИСПРАВЛЕНО: Заменили lg:px-0 на lg:px-8 для безопасности на 11-13 дюймах */}
+            <div className="mx-auto flex w-full max-w-[1360px] flex-col gap-10 px-4 sm:gap-14 sm:px-6 lg:gap-16 lg:px-8">
+                <div className="flex flex-col items-center gap-4 text-center">
+                    <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                        Ответь на 5 вопросов и получи лучшее предложение среди всех провайдеров России
+                    </h2>
+                    <p className="max-w-4xl text-base leading-relaxed sm:text-xl lg:text-2xl text-foreground/80">
+                        Подберем домашний интернет или телевидение с оформлением подключения на удобное тебе время!
+                    </p>
+                </div>
 
-				<div className="overflow-visible rounded-3xl bg-white">
-					<div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8">
-						<div className="flex flex-col justify-between gap-8 px-4 py-6 sm:px-6 sm:py-8 md:gap-12 md:py-12 md:pl-12">
-							<AnimatePresence mode="wait" initial={false}>
-								<motion.div
-									key={slides[currentIndex].id}
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									exit={{ opacity: 0, x: 20 }}
-									transition={{ duration: 0.25, ease: "easeInOut" }}
-									className="flex flex-col gap-8 md:gap-12 lg:gap-20"
-								>
-									<h3 className="text-2xl font-bold leading-tight sm:text-3xl">
-										{slides[currentIndex].title}
-									</h3>
+                <div className="overflow-visible rounded-[2rem] bg-white shadow-xl shadow-slate-200/60 border border-slate-100">
+                    <div className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8">
+                        {/* Левая часть: добавили md:pr-4 для воздуха между колонками */}
+                        <div className="flex flex-col justify-between gap-8 px-5 py-8 sm:px-8 sm:py-10 md:gap-12 md:py-14 md:pl-14 md:pr-4">
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={slides[currentIndex].id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 20 }}
+                                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                                    className="flex flex-col gap-8 md:gap-10 lg:gap-14"
+                                >
+                                    <h3 className="text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+                                        {slides[currentIndex].title}
+                                    </h3>
 
-									{slides[currentIndex].left}
-								</motion.div>
-							</AnimatePresence>
+                                    <div className="min-h-fit">
+                                        {slides[currentIndex].left}
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
 
-							<div className="flex flex-wrap items-center gap-4 sm:gap-6">
-								<Button
-									onClick={() => goTo(currentIndex - 1)}
-									disabled={currentIndex === 0}
-									className="flex h-10 w-10 items-center justify-center rounded-full"
-								>
-									<ChevronLeft />
-								</Button>
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 mt-4">
+                                <Button
+                                    onClick={() => goTo(currentIndex - 1)}
+                                    disabled={currentIndex === 0}
+                                    variant="outline"
+                                    className="flex h-12 w-12 items-center justify-center rounded-full border-2"
+                                >
+                                    <ChevronLeft className="h-6 w-6" />
+                                </Button>
 
-								<div className="flex items-center gap-3">
-									{slides.map((_, i) => (
-										<button
-											key={i}
-											onClick={() => goTo(i)}
-											className={
-												i === currentIndex
-													? "h-4 w-4 rounded-full bg-primary"
-													: "h-2 w-2 rounded-full bg-muted"
-											}
-										/>
-									))}
-								</div>
+                                <div className="flex items-center gap-3">
+                                    {slides.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => goTo(i)}
+                                            className={
+                                                i === currentIndex
+                                                    ? "h-3 w-8 rounded-full bg-primary transition-all"
+                                                    : "h-3 w-3 rounded-full bg-muted hover:bg-slate-300 transition-all"
+                                            }
+                                        />
+                                    ))}
+                                </div>
 
-								<Button
-									onClick={() => goTo(currentIndex + 1)}
-									disabled={currentIndex === total - 1}
-									className="flex h-10 w-10 items-center justify-center rounded-full"
-								>
-									<ChevronRight />
-								</Button>
-							</div>
-						</div>
+                                <Button
+                                    onClick={() => goTo(currentIndex + 1)}
+                                    disabled={currentIndex === total - 1}
+                                    className="flex h-12 w-12 items-center justify-center rounded-full shadow-lg"
+                                >
+                                    <ChevronRight className="h-6 w-6" />
+                                </Button>
+                            </div>
+                        </div>
 
-						<div className="relative flex min-h-[260px] items-end justify-center overflow-visible px-4 pb-4 sm:min-h-[320px] sm:px-6 sm:pb-6 md:min-h-0 md:justify-end md:px-0 md:pb-0">
-							<AnimatePresence mode="wait" initial={false}>
-								<motion.div
-									key={slides[currentIndex].id}
-									initial={{ opacity: 0, x: 40 }}
-									animate={{ opacity: 1, x: 0 }}
-									exit={{ opacity: 0, x: -40 }}
-									transition={{ duration: 0.25, ease: "easeInOut" }}
-									className="flex h-full w-full items-end justify-center md:justify-end"
-								>
-									{slides[currentIndex].right ?? null}
-								</motion.div>
-							</AnimatePresence>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	)
+                        {/* Правая часть: добавили md:pr-14 для симметрии отступов */}
+                        <div className="relative flex min-h-[300px] items-end justify-center overflow-visible px-5 pb-8 sm:min-h-[380px] sm:px-8 sm:pb-10 md:min-h-0 md:justify-end md:pr-14 md:pb-14 md:pt-14">
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={slides[currentIndex].id}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.25 }}
+                                    className="flex h-full w-full items-center justify-center md:justify-end"
+                                >
+                                    {slides[currentIndex].right ?? null}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }

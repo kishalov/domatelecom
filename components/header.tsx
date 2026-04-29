@@ -22,7 +22,7 @@ export default function Header() {
 	const { city, openPicker } = useCity()
 
 	return (
-		<header className="w-full bg-secondary">
+		<header className="w-full">
 			<div className="mx-auto flex max-w-[1360px] items-center justify-between p-4">
 				<Link
 					href="/"
@@ -77,13 +77,13 @@ export default function Header() {
 
 				<div className="hidden flex-col items-end justify-between gap-3 md:flex">
 					<div className="flex items-center gap-10 text-primary">
-						<Link href="#">
+						<Link href="https://t.me/domatelecom">
 							<Send className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 						</Link>
-						<Link href="#">
+						<Link href="https://www.youtube.com/@Domatelecom" target="_blank">
 							<Youtube className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 						</Link>
-						<Link href="#">
+						<Link href="mailto:doma.telekom@yandex.ru">
 							<Mail className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 						</Link>
 					</div>
@@ -137,13 +137,13 @@ export default function Header() {
 								</nav>
 
 								<div className="flex items-center gap-6 text-primary">
-									<Link href="#">
+									<Link href="https://t.me/domatelecom">
 										<Send className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 									</Link>
-									<Link href="#">
+									<Link href="https://www.youtube.com/@Domatelecom" target="_blank">
 										<Youtube className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 									</Link>
-									<Link href="#">
+									<Link href="mailto:doma.telekom@yandex.ru">
 										<Mail className="h-7 w-7 transition-colors duration-500 hover:text-dark-blue" />
 									</Link>
 								</div>
