@@ -40,8 +40,9 @@ function providerLogoByName(name: string): string | null {
 	if (n === "таттелеком") return "/providery/tattelecom.png"
 	if (n === "яр.com") return "/providery/yarcom.png"
 	if (n === "уфанет") return "/providery/ufanet.png"
-	if (n === "орион") return "/providery/orion.png"
-	if (n === "аксиома24") return "/providery/axioma24.png"
+	if (n === "орион телеком") return "/providery/orion.png"
+	if (n === "аксиома") return "/providery/axioma24.png"
+	if (n === "электронный город") return "/providery/elgorod.svg"
 
 	return null
 }

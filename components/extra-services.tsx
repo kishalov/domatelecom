@@ -64,16 +64,30 @@ export function ExtraServicesSection() {
                     </Card>
 
                     {/* КАРТОЧКА 4: Видеонаблюдение */}
-                    <Card className="relative h-[240px] w-full overflow-hidden sm:h-[270px] lg:h-[300px]">
-                        <div className="absolute inset-0">
+                    <Card className="relative h-[240px] w-full overflow-hidden border-0 sm:h-[270px] lg:h-[300px]">
+                        {/* 1. ФОН (Background) */}
+                        <div className="absolute inset-0 z-0">
                             <Image
                                 src="/cameras-bg.png"
-                                alt="Камеры"
+                                alt="Фон камер"
                                 fill
                                 className="object-cover"
+                                priority
                             />
                         </div>
-                        <CardContent className="relative p-6 sm:p-8">
+
+                        {/* 2. ПЛАВАЮЩЕЕ ИЗОБРАЖЕНИЕ (Cameras Image) */}
+                        <div className="absolute -bottom-10 right-0 z-10 h-full w-1/2">
+                            <Image
+                                src="/cameras.png"
+                                alt="Камеры"
+                                fill
+                                className="object-contain object-right-bottom" 
+                            />
+                        </div>
+
+                        {/* 3. КОНТЕНТ (Текст поверх всего) */}
+                        <CardContent className="relative z-20 h-full">
                             <p className="text-xl font-bold text-black sm:text-2xl">
                                 Видеонаблюдение
                             </p>

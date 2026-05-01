@@ -110,11 +110,13 @@ export function SpeedSlider({
       </div>
 
       {POINTS.map((p, i) => (
-        <div
+<div
           key={i}
           className={`absolute text-sm whitespace-nowrap ${
             p.pos === "top" ? "top-2" : "bottom-2"
-          } -translate-x-1/2`}
+          } -translate-x-1/2 ${
+            p.percent === 100 ? "hidden md:block" : "" // Скрываем 1000 мб на мобилках
+          }`}
           style={{ left: `${p.percent}%` }}
         >
           {p.label}

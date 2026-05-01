@@ -38,6 +38,16 @@ const FORM_TITLES: Record<TabKey, string> = {
     house: "Оставьте заявку на подключение интернета в частный дом",
 }
 
+const getPlural = (number: number, one: string, two: string, five: string) => {
+    let n = Math.abs(number);
+    n %= 100;
+    if (n >= 5 && n <= 20) return five;
+    n %= 10;
+    if (n === 1) return one;
+    if (n >= 2 && n <= 4) return two;
+    return five;
+};
+
 function ProviderCard({
     provider,
     isActive,
@@ -116,19 +126,23 @@ export default function HeroTabsSection() {
     }
 }
 
-    const handleFind = () => {
-        if (!street) return
-        setIsSearching(true)
+const handleFind = () => {
+    if (!street) return
+    setIsSearching(true)
 
-        setTimeout(() => {
-            setIsSearching(false)
-            const count = Math.floor(Math.random() * 6) + 4
-            openContactForm({
-                title: `Мы подобрали для вас ${count} тарифов!`,
-                source: `Поиск: ${tab}, Адрес: ${street}, д. ${house}${flat ? (tab === 'flat' ? ', кв. ' : ', оф. ') + flat : ''}`,
-            })
-        }, 2500)
-    }
+    setTimeout(() => {
+        setIsSearching(false)
+        const count = Math.floor(Math.random() * 6) + 4
+        
+        // Склоняем слово "тариф"
+        const word = getPlural(count, "тариф", "тарифа", "тарифов");
+
+        openContactForm({
+            title: `Мы подобрали для вас ${count} ${word}! Оставьте номер телефона для связи, мы позвоним и все расскажем!`,
+            source: `Поиск: ${tab}, Адрес: ${street}, д. ${house}${flat ? (tab === 'flat' ? ', кв. ' : ', оф. ') + flat : ''}`,
+        })
+    }, 2500)
+}
 
     // Загрузка провайдеров
     React.useEffect(() => {
