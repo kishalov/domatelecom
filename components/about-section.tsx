@@ -9,19 +9,18 @@ export default function AboutSection() {
     const { openContactForm } = useContactForm()
 
     return (
-        <section
-            id="about"
-            /* ИСПРАВЛЕНО: Добавлены md:bg-[url('/cable-bg.svg')] и сопутствующие классы. 
-               На мобилках (до md) фона не будет. */
-            className="py-10 md:py-16 lg:py-24 md:bg-[url('/cable-bg.svg')] md:bg-contain md:bg-center md:bg-no-repeat"
-        >
-            {/* ИСПРАВЛЕНО: Заменили lg:px-0 на lg:px-8, чтобы контент не лип к краям на 11-13 дюймах */}
+        <section id="about" className="py-10 md:py-16 lg:py-24 md:bg-[url('/cable-bg.svg')] md:bg-contain md:bg-center md:bg-no-repeat">
             <div className="mx-auto flex max-w-[1360px] flex-col px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col gap-6 mb-10 lg:mb-16">
-                    <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                        С нами все онлайн
-                    </h2>
-
+                    <div className="flex items-center gap-3">
+                            <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                                С нами все онлайн
+                            </h2>
+                            <span className="relative flex h-3 w-3 sm:h-4 sm:w-4 mt-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#11FC19] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 sm:h-4 sm:w-4 bg-[#11FC19]"></span>
+                            </span>
+                        </div>
                     <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-12">
                         <p className="text-base leading-relaxed sm:text-lg text-foreground/90">
                             Не разбираешься в тарифах? <br className="hidden sm:block" />
