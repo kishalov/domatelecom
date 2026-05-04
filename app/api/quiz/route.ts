@@ -3,19 +3,28 @@ import { NextRequest, NextResponse } from "next/server"
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json()
-		console.log("ПОЛУЧЕНО ОТ КЛИЕНТА:", body)
-        
-        // Извлекаем телефон и остальные данные
-        const { phone, fullName, address } = body
+        const { 
+            phone, 
+            fullName, 
+            address, 
+            service, 
+            speed, 
+            equipment, 
+            deniedProviders, 
+            deniedOther, 
+            connectionTiming, 
+            connectionDate, 
+            connectionTime, 
+            autoSelect 
+        } = body
 
-        // Формируем текстовый блок со всеми ответами квиза
         const quizSummary = `
-		Услуга: ${body.service}
-		Скорость: ${body.speed} Мбит/с
-		Оборудование: ${body.equipment}
-		Провайдеры-исключения: ${body.deniedProviders?.join(', ') || 'нет'} ${body.deniedOther ? `(${body.deniedOther})` : ''}
-		Время подключения: ${body.connectionTiming === 'choose' ? `${body.connectionDate} в ${body.connectionTime}` : body.connectionTiming}
-		Авто-подбор: ${body.autoSelect ? 'Да' : 'Нет'}
+Услуга: ${service}
+Скорость: ${speed}
+Оборудование: ${equipment}
+Отказ от: ${deniedProviders?.join(', ') || 'нет'} ${deniedOther ? `(${deniedOther})` : ''}
+Время: ${connectionTiming === 'choose' ? `${connectionDate} в ${connectionTime}` : connectionTiming}
+Авто-подбор: ${autoSelect ? 'Да' : 'Нет'}
         `.trim()
 
         const bitrixPayload = {
@@ -35,13 +44,11 @@ export async function POST(req: NextRequest) {
             body: JSON.stringify(bitrixPayload),
         })
 
-        const result = await response.json()
-
         if (!response.ok) throw new Error("Bitrix Error")
 
         return NextResponse.json({ ok: true })
     } catch (error) {
-        console.error("Ошибка отправки в Битрикс:", error)
+        console.error("Ошибка:", error)
         return NextResponse.json({ ok: false }, { status: 500 })
     }
 }

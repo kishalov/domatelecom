@@ -27,6 +27,7 @@ type Slide = {
 type QuizFormData = {
 	service: "internet" | "internet-tv" | "internet-tv-mobile"
 	speed: string
+	speedPercent: number;
 	equipment: "none" | "wifi-router" | "tv-box" | "wifi-tv"
 	deniedProviders: string[]
 	deniedOther: string
@@ -67,6 +68,7 @@ export default function QuizSection() {
 	const [form, setForm] = useState<QuizFormData>({
 		service: "internet",
 		speed: "100 мб/сек",
+		speedPercent: 20,
 		equipment: "none",
 		deniedProviders: [],
 		deniedOther: "",
@@ -150,6 +152,7 @@ export default function QuizSection() {
 			setForm({
 				service: "internet",
 				speed: "100 мб/сек",
+				speedPercent: 20,
 				equipment: "none",
 				deniedProviders: [],
 				deniedOther: "",
@@ -215,25 +218,39 @@ export default function QuizSection() {
 			),
 		},
 		{
-			id: 2,
-			title: "Какая скорость вам потребуется?",
-			left: (
-				<SpeedSlider
-					value={form.speed}
-					onChange={(value) =>
-						setForm((prev) => ({
-							...prev,
-							speed: value,
-						}))
-					}
-				/>
-			),
-			right: (
-				<div className="flex p-4 sm:p-6 md:p-12">
-					<Speedometer value={form.speed} />
-				</div>
-			),
-		},
+    id: 2,
+    title: "Какая скорость вам потребуется?",
+    left: (
+        <SpeedSlider
+            value={form.speedPercent} // Слайдер получает проценты (число)
+            onChange={(label) => {
+                // label теперь приходит как строка "500 мб/сек" из SpeedSlider
+                // Нам нужно найти соответствующие проценты в массиве POINTS
+                const POINTS = [
+                    { percent: 20, label: "100 мб/сек" },
+                    { percent: 40, label: "200 мб/сек" },
+                    { percent: 60, label: "500 мб/сек" },
+                    { percent: 80, label: "750 мб/сек" },
+                    { percent: 100, label: "1000 мб/сек" },
+                ];
+                
+                const point = POINTS.find(p => p.label === label);
+                
+                setForm((prev) => ({
+                    ...prev,
+                    speed: label, // В Битрикс уйдет текст
+                    speedPercent: point ? point.percent : prev.speedPercent, // Спидометр получит число
+                }));
+            }}
+        />
+    ),
+    right: (
+        <div className="flex p-4 sm:p-6 md:p-12">
+            {/* Спидометр работает от процентов (число) */}
+            <Speedometer value={form.speedPercent} />
+        </div>
+    ),
+},
 		{
 			id: 3,
 			title: "Какое оборудование Вам понадобится:",
