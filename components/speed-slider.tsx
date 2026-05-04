@@ -17,7 +17,7 @@ export function SpeedSlider({
   onChange,
 }: {
   value?: number
-  onChange?: (v: number) => void
+  onChange?: (v: string) => void // Теперь ждет строку (лейбл)
 }) {
   const [current, setCurrent] = useState(value)
   const trackRef = useRef<HTMLDivElement | null>(null)
@@ -37,20 +37,20 @@ export function SpeedSlider({
     return closest
   }
 
-  function update(clientX: number) {
-    const track = trackRef.current
-    if (!track) return
+function update(clientX: number) {
+  const track = trackRef.current
+  if (!track) return
 
-    const rect = track.getBoundingClientRect()
-    let ratio = (clientX - rect.left) / rect.width
-    ratio = Math.max(0, Math.min(1, ratio))
-
-    const rawPercent = ratio * 100
-    const snap = nearestStep(rawPercent)
-
-    setCurrent(snap)
-    onChange?.(snap)
-  }
+  const rect = track.getBoundingClientRect()
+  let ratio = (clientX - rect.left) / rect.width
+  ratio = Math.max(0, Math.min(1, ratio))
+  const rawPercent = ratio * 100
+  const snap = nearestStep(rawPercent)
+  setCurrent(snap)
+  const selectedPoint = POINTS.find(p => p.percent === snap)
+  const finalValue = selectedPoint ? selectedPoint.label : snap.toString()
+  onChange?.(finalValue) 
+}
 
   function onPointerDownThumb(e: React.PointerEvent) {
     e.preventDefault()
@@ -115,7 +115,7 @@ export function SpeedSlider({
           className={`absolute text-sm whitespace-nowrap ${
             p.pos === "top" ? "top-2" : "bottom-2"
           } -translate-x-1/2 ${
-            p.percent === 100 ? "hidden md:block" : "" // Скрываем 1000 мб на мобилках
+            p.percent === 100 ? "hidden md:block" : "" 
           }`}
           style={{ left: `${p.percent}%` }}
         >

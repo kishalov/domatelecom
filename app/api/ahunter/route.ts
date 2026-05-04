@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get('query');
-  const city = searchParams.get('city'); // Получаем город из запроса
+  const city = searchParams.get('city'); 
 
   if (!query || query.length < 3) {
     return NextResponse.json({ suggestions: [] });
@@ -14,8 +14,6 @@ export async function GET(request: Request) {
   const apiUrl = new URL('https://ahunter.ru/site/suggest/address');
   apiUrl.searchParams.append('output', 'json');
   
-  // Чтобы Ahunter искал в конкретном городе, 
-  // склеиваем город и поисковый запрос улицы
   const fullQuery = city ? `${city}, ${query}` : query;
   apiUrl.searchParams.append('query', fullQuery);
   
