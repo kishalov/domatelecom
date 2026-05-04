@@ -74,11 +74,25 @@ export default function Footer() {
 
                 </div>
 
-                <div className="flex flex-col gap-2 text-sm opacity-90 sm:gap-3 md:flex-row md:justify-between md:gap-4">
-                    <a href="/privacy" className="hover:underline">Политика конфиденциальности</a>
-                    <a href="/consent" className="hover:underline">Согласие на обработку персональных данных</a>
-                    <p className="text-foreground">© Все права защищены 2026</p>
-                </div>
+<div className="flex flex-col gap-2 text-sm opacity-90 sm:gap-3 md:flex-row md:justify-between md:gap-4">
+    <a 
+        href="/privacy.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="hover:underline"
+    >
+        Политика конфиденциальности
+    </a>
+    <a 
+        href="/consent.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="hover:underline"
+    >
+        Согласие на обработку персональных данных
+    </a>
+    <p className="text-foreground">© Все права защищены 2026</p>
+</div>
 
             </div>
         </footer>
