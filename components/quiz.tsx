@@ -26,7 +26,7 @@ type Slide = {
 
 type QuizFormData = {
 	service: "internet" | "internet-tv" | "internet-tv-mobile"
-	speed: number
+	speed: string
 	equipment: "none" | "wifi-router" | "tv-box" | "wifi-tv"
 	deniedProviders: string[]
 	deniedOther: string
