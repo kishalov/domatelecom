@@ -149,7 +149,7 @@ export default function QuizSection() {
 
 			setForm({
 				service: "internet",
-				speed: 20,
+				speed: "100 мб/сек",
 				equipment: "none",
 				deniedProviders: [],
 				deniedOther: "",
