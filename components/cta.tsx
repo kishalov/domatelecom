@@ -54,7 +54,7 @@ export function CtaPromoSection() {
 
       <img
         src="/cta-cat-transparent.png" 
-        alt="Маскот ДомаТелеком"
+        alt="Лучший выбор провайдеров в ДомаТелеком"
         className="absolute min-w-[350px] bottom-[-50%] right-0 sm:bottom-[-120%] sm:right-[5%] sm:min-w-[500px]"
       />
     </div>

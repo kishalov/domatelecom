@@ -61,15 +61,11 @@ export function ReasonsSection() {
                     </div>
                 </div>
 
-                {/* ИСПРАВЛЕНО: 
-                    1. Добавлен `hidden lg:block` — глобус полностью исчезает на мобилках и планшетах.
-                    2. Оставили `flex-1` и `relative`, чтобы на ПК он занимал свое место.
-                */}
                 <div className="relative hidden flex-1 pointer-events-none select-none sm:block">
                     <div className="absolute top-0 -right-100 h-full flex items-center xl:-right-60">
                         <Image
                             src="/globe-right.svg"
-                            alt="Схематичная синяя иконка земного шара, символизирующая глобальную сеть интернет и масштаб охвата сервиса."
+                            alt="Рейтинг интернет-провайдеров по России"
                             width={1200}
                             height={1200}
                             className="h-auto w-auto lg:h-full lg:max-w-none object-contain"

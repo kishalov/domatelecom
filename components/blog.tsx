@@ -35,22 +35,25 @@ const articles = [
 export function ArticlesSection() {
     return (
         <section className="w-full py-10 sm:py-14 lg:py-20">
-            {/* Твой контейнер с отступами для ПК, которые мы добавили ранее */}
             <div className="mx-auto flex max-w-[1360px] flex-col gap-6 px-4 sm:gap-8 sm:px-6 lg:gap-10 lg:px-8">
                 {articles.map((a) => (
                     <div key={a.id} className="relative flex w-full flex-col lg:flex-row">
                         
-                        {/* 1. Добавляем относительное позиционирование изображению */}
                         <div className="relative z-0 h-[200px] w-full overflow-hidden rounded-2xl bg-white sm:h-[260px] lg:h-auto lg:w-[630px] lg:rounded-l-3xl lg:rounded-tr-none lg:rounded-br-none">
                             <Image
                                 src={a.img}
-                                alt={a.title}
+                                alt={
+                                    a.id === 1
+                                        ? "Подборка роутеров от ДомаТелеком"
+                                        : a.id === 2
+                                            ? "Советы по расположению роутера в квартире от ДомаТелеком"
+                                            : "Разбор пакетных тарифов провайдеров от ДомаТелеком"
+                                }
                                 fill
                                 className="object-cover"
                             />
                         </div>
 
-                        {/* 2. ИСПРАВЛЕНИЕ: Магия наложения на мобилках */}
                         <Card 
                             className={`
                                 relative w-full p-5 sm:p-6 lg:-ml-12 lg:grid lg:grid-cols-2 lg:items-end lg:p-6

@@ -48,27 +48,37 @@ export default function Footer() {
                     <div className="flex flex-col items-start gap-4 sm:gap-5">
                         <Image
                             src="/logo.svg"
-                            alt="ДомаТелеком"
+                            alt="Подключение домашнего интернета и ТВ по всей России с ДомаТелеком"
                             width={200}
                             height={50}
                             className="h-auto w-[140px] sm:w-[160px] lg:w-[200px]"
                         />
 
                         <div className="mt-1 flex items-center gap-5 sm:mt-2 sm:gap-6">
-                            {/* Telegram */}
-                            <a href="https://t.me/domatelecom" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                                <Send className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
-                            </a>
+                            <a
+	href="https://t.me/domatelecom"
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label="Телеграм канал ДомаТелеком"
+>
+	<Send className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
+</a>
                             
-                            {/* YouTube */}
-                            <a href="https://www.youtube.com/@Domatelecom" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <Youtube className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
-                            </a>
+<a
+	href="https://www.youtube.com/@Domatelecom"
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label="Ютуб канал ДомаТелеком"
+>
+	<Youtube className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
+</a>
                             
-                            {/* Mail */}
-                            <a href="mailto:doma.telekom@yandex.ru" aria-label="Email">
-                                <Mail className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
-                            </a>
+<a
+	href="mailto:doma.telekom@yandex.ru"
+	aria-label="Электронная почта ДомаТелеком"
+>
+	<Mail className="h-6 w-6 cursor-pointer stroke-[1.5] transition-opacity hover:opacity-80 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
+</a>
                         </div>
                     </div>
 

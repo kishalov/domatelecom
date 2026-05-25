@@ -66,7 +66,7 @@ function ProviderCard({
                 {provider.logo ? (
                     <Image
                         src={provider.logo}
-                        alt={provider.name}
+                        alt={`Тарифы провайдера ${provider.name} - подбор и консультация в вашем городе`}
                         width={190}
                         height={150}
                         className="h-auto max-h-full w-auto max-w-full object-contain"
@@ -95,7 +95,6 @@ export default function HeroTabsSection() {
     const { city, openPicker } = useCity()
     const { openContactForm } = useContactForm()
 
-    // --- ЛОГИКА ПОЛЕЙ ---
     const [street, setStreet] = React.useState("")
     const [house, setHouse] = React.useState("")
     const [flat, setFlat] = React.useState("")
@@ -134,7 +133,6 @@ const handleFind = () => {
         setIsSearching(false)
         const count = Math.floor(Math.random() * 6) + 4
         
-        // Склоняем слово "тариф"
         const word = getPlural(count, "тариф", "тарифа", "тарифов");
 
         openContactForm({
@@ -144,7 +142,6 @@ const handleFind = () => {
     }, 2500)
 }
 
-    // Загрузка провайдеров
     React.useEffect(() => {
         let alive = true
         const load = async () => {
@@ -180,7 +177,6 @@ const handleFind = () => {
         }
     }, [api])
 
-    // Рендер выпадающего списка подсказок
     const SuggestionsList = () => (
         showSuggestions && suggestions.length > 0 && (
             <div className="absolute z-[100] top-full mt-1 left-0 w-full bg-white border rounded-md shadow-xl max-h-60 overflow-auto">
@@ -231,7 +227,6 @@ const handleFind = () => {
 
                     <Card className="w-full p-6">
                         <CardContent className="sm:p-6 p-0">
-                            {/* В КВАРТИРУ */}
                             <TabsContent value="flat" className="mt-0">
                                 <div className="w-full gap-3 grid grid-cols-2 sm:flex sm:flex-row">
                                     <div className="relative flex-[3] col-span-2 sm:col-span-1">
@@ -251,7 +246,6 @@ const handleFind = () => {
                                 </div>
                             </TabsContent>
 
-                            {/* В ОФИС */}
                             <TabsContent value="office" className="mt-0">
                                 <div className="flex w-full flex-col gap-3 lg:flex-row">
                                     <div className="relative flex-[3]">
@@ -271,7 +265,6 @@ const handleFind = () => {
                                 </div>
                             </TabsContent>
 
-                            {/* В ЧАСТНЫЙ ДОМ */}
                             <TabsContent value="house" className="mt-0">
                                 <div className="flex w-full flex-col gap-3 lg:flex-row">
                                     <div className="relative flex-[3]">
@@ -305,7 +298,6 @@ const handleFind = () => {
                     </DialogContent>
                 </Dialog>
 
-                {/* Блок провайдеров (карусель) остается без изменений */}
                 <div className="w-full">
                     <h2 className="mb-8 text-center text-3xl font-bold leading-tight sm:mb-10 sm:text-4xl lg:mb-12 lg:text-5xl">
                         Лучшие провайдеры в {city?.name ? `г. ${city.name}` : "вашем городе"}

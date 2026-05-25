@@ -22,7 +22,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/mts.png"
-							alt="МТС"
+							alt="Тарифы провайдера МТС - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -30,7 +30,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/bilain.png"
-							alt="Билайн"
+							alt="Тарифы провайдера Билайн - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -38,7 +38,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/rostelecom.png"
-							alt="Ростелеком"
+							alt="Тарифы провайдера Ростелеком - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -46,7 +46,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/ufanet.png"
-							alt="Уфанет"
+							alt="Тарифы провайдера Уфанет - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -54,7 +54,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/mts.png"
-							alt="МТС"
+							alt="Тарифы провайдера МТС - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -62,7 +62,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/bilain.png"
-							alt="Билайн"
+							alt="Тарифы провайдера Билайн - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -70,7 +70,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/rostelecom.png"
-							alt="Ростелеком"
+							alt="Тарифы провайдера Ростелеком - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>
@@ -78,7 +78,7 @@ export function PartnersMarquee() {
 					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
 						<img
 							src="/partners/ufanet.png"
-							alt="Уфанет"
+							alt="Тарифы провайдера Уфанет - подбор и консультация"
 							className="max-h-[70%] max-w-[70%] object-contain"
 						/>
 					</Card>

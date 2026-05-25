@@ -30,7 +30,7 @@ export default function Header() {
 				>
 					<Image
 						src="/logo.svg"
-						alt="Домателеком"
+						alt="Подключение домашнего интернета и ТВ по всей России с ДомаТелеком"
 						width={250}
 						height={32}
 						className="h-auto w-[180px] sm:w-[220px] lg:w-[250px]"

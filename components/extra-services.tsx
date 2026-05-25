@@ -15,7 +15,6 @@ export function ExtraServicesSection() {
                     Используем адаптивный gap для промежуточных размеров */}
                 <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:gap-10">
                     
-                    {/* КАРТОЧКА 1: Домофония */}
                     <Card className="relative h-[240px] w-full overflow-hidden bg-primary p-0 text-white sm:h-[270px] lg:h-[300px]">
                         <CardContent className="relative h-full w-full p-6 sm:p-8">
                             <p className="text-xl font-bold sm:text-2xl">
@@ -23,7 +22,7 @@ export function ExtraServicesSection() {
                             </p>
                             <Image
                                 src="/domofon.png"
-                                alt="Домофония"
+                                alt="Домофония от провайдеров-партнеров"
                                 width={400}
                                 height={200}
                                 className="absolute bottom-0 left-1/2 w-[75%] sm:w-[70%] lg:w-[80%] -translate-x-1/2 object-contain"
@@ -31,7 +30,6 @@ export function ExtraServicesSection() {
                         </CardContent>
                     </Card>
 
-                    {/* КАРТОЧКА 2: Мобильная связь */}
                     <Card className="relative h-[240px] w-full bg-primary p-0 text-white sm:h-[270px] lg:h-[300px]">
                         <CardContent className="relative flex h-full w-full flex-col p-6 sm:p-8">
                             <p className="text-xl font-bold sm:text-2xl">
@@ -39,7 +37,7 @@ export function ExtraServicesSection() {
                             </p>
                             <Image
                                 src="/mobile.svg"
-                                alt="Мобильная связь"
+                                alt="Мобильная связь от провайдеров-партнеров"
                                 width={260}
                                 height={260}
                                 className="absolute -bottom-4 left-1/2 w-32 sm:w-36 lg:w-44 -translate-x-1/2"
@@ -47,7 +45,6 @@ export function ExtraServicesSection() {
                         </CardContent>
                     </Card>
 
-                    {/* КАРТОЧКА 3: ТВ */}
                     <Card className="relative h-[240px] w-full bg-primary p-0 text-white sm:h-[270px] lg:h-[300px]">
                         <CardContent className="relative h-full w-full p-6 sm:p-8">
                             <p className="text-xl font-bold sm:text-2xl">
@@ -55,7 +52,7 @@ export function ExtraServicesSection() {
                             </p>
                             <Image
                                 src="/tv.svg"
-                                alt="Все виды ТВ"
+                                alt="Цифровое и кабельное телевидение от провайдеров-партнеров"
                                 width={300}
                                 height={200}
                                 className="absolute -bottom-4 left-1/2 w-48 sm:w-56 lg:w-64 -translate-x-1/2"
@@ -69,7 +66,7 @@ export function ExtraServicesSection() {
                         <div className="absolute inset-0 z-0">
                             <Image
                                 src="/cameras-bg.png"
-                                alt="Фон камер"
+                                alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
                                 className="object-cover"
                                 priority
@@ -80,7 +77,7 @@ export function ExtraServicesSection() {
                         <div className="absolute -bottom-10 right-0 z-10 h-full w-1/2">
                             <Image
                                 src="/cameras.png"
-                                alt="Камеры"
+                                alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
                                 className="object-contain object-right-bottom" 
                             />
@@ -94,7 +91,6 @@ export function ExtraServicesSection() {
                         </CardContent>
                     </Card>
 
-                    {/* КАРТОЧКА 5: Кинотеатры */}
                     <Card className="relative h-[240px] w-full overflow-hidden bg-[#001D3D] text-white sm:h-[270px] lg:h-[300px]">
                         <CardContent className="relative h-full w-full p-6 sm:p-8">
                             <p className="text-xl font-bold sm:text-2xl">
@@ -102,7 +98,7 @@ export function ExtraServicesSection() {
                             </p>
                             <Image
                                 src="/cinema-logos.svg"
-                                alt="Онлайн кинотеатры"
+                                alt="Онлайн-кинотеатры от провайдеров-партнеров"
                                 width={200}
                                 height={100}
                                 className="absolute bottom-1 right-4 w-36 sm:w-34 lg:w-45"
@@ -110,7 +106,6 @@ export function ExtraServicesSection() {
                         </CardContent>
                     </Card>
 
-                    {/* КАРТОЧКА 6: Бонусы */}
                     <Card className="relative h-[240px] w-full overflow-hidden bg-[#001D3D] text-white sm:h-[270px] lg:h-[300px]">
                         <CardContent className="flex h-full flex-col justify-between p-6 sm:p-8">
                             <p className="text-xl font-bold sm:text-2xl">Бонусы от партнёров</p>

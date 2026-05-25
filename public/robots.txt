@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+Disallow: /files/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /service-worker.js
+Disallow: /asset-manifest.json
+Disallow: /sitemap*.xml
+Disallow: /*?*
+Disallow: /callback
+Disallow: /thank-you
+Disallow: /personal-data
+Disallow: /login
+Disallow: /consent.pdf
+Disallow: /privacy.pdf
+
+Sitemap: https://www.domatelecom.ru/sitemap.xml
+
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content
+Clean-param: from&yclid&_openstat

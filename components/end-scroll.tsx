@@ -21,7 +21,7 @@ export default function EndScrollSection() {
                     <div className="absolute inset-x-0 top-0 flex -translate-y-[40%] justify-center sm:-translate-y-[45%] lg:-translate-y-[50%]">
                         <Image
                             src="/cat-end.svg"
-                            alt="Умиляющийся фирменный кот ДомаТелеком с большими сияющими глазами и сложенными лапками, благодарящий пользователя за просмотр страницы."
+                            alt="Маскот ДомаТелеком - подключение интернета и тв"
                             width={240}
                             height={240}
                             className="h-auto w-[140px] object-contain sm:w-[180px] lg:w-[240px]"
