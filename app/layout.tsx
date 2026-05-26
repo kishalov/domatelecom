@@ -20,21 +20,24 @@ export const metadata: Metadata = {
 		follow: true,
 	},
 
-	openGraph: {
-		type: "website",
-		title:
-			"ДомаТелеком — подбор тарифов на интернет и телевидение по всей России.",
-		description:
-			"Помогаем людям по всей стране оставаться на связи с близкими. Интернет, телевидение, мобильная связь — тарифы от провайдеров по всей России со скидками до 50%! Подключайся выгодно с ДомаТелеком.",
-		url: "https://domatelecom.ru",
-		siteName: "ДомаТелеком",
-		locale: "ru_RU",
-		images: [
-			{
-				url: "https://domatelecom.ru/image",
-			},
-		],
-	},
+openGraph: {
+	type: "website",
+	title:
+		"ДомаТелеком — подбор тарифов на интернет и телевидение по всей России.",
+	description:
+		"Помогаем людям по всей стране оставаться на связи с близкими. Интернет, телевидение, мобильная связь — тарифы от провайдеров по всей России со скидками до 50%! Подключайся выгодно с ДомаТелеком.",
+	url: "https://domatelecom.ru",
+	siteName: "ДомаТелеком",
+	locale: "ru_RU",
+	images: [
+		{
+			url: "https://domatelecom.ru/og-image.png",
+			width: 450,
+			height: 450,
+			alt: "ДомаТелеком",
+		},
+	],
+},
 }
 
 export default function RootLayout({
