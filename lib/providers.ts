@@ -65,14 +65,14 @@ function loadAddressBase(): ProvidersMap {
 	const buf: Buffer = fs.readFileSync(filePath)
 	const wb: XLSX.WorkBook = XLSX.read(buf, { type: "buffer" })
 	const sheet: XLSX.WorkSheet = wb.Sheets[wb.SheetNames[0]]
-	const rows: any[] = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" }) as any[]
+	const rows: unknown[][] = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" }) as unknown[][]
 
-	const header: string[] = (rows[0] ?? []).map((h: any) => String(h ?? "").trim())
+	const header: string[] = (rows[0] ?? []).map((h: unknown) => String(h ?? "").trim())
 
 	const map: ProvidersMap = new Map()
 
 	for (let i = 1; i < rows.length; i++) {
-		const row: any[] = rows[i] as any[]
+		const row: unknown[] = rows[i]
 		if (!row || row.length < 2) continue
 
 		const regionRaw: string = String(row[0] ?? "")

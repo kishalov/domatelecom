@@ -21,12 +21,6 @@ type ContactFormContextValue = {
 	closeContactForm: () => void
 }
 
-type ContactApiResponse = {
-	ok?: boolean
-	error?: string
-	message?: string
-}
-
 const ContactFormContext = React.createContext<ContactFormContextValue | null>(null)
 
 export function ContactFormProvider({
