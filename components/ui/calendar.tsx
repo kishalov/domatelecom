@@ -123,7 +123,6 @@ function Calendar({
 
 function CalendarDayButton({
   className,
-  day,
   modifiers,
   ...props
 }: React.ComponentProps<typeof DayButton>) {

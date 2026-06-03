@@ -169,7 +169,7 @@ export default function QuizSection() {
 			setDate(new Date())
 			setTime("00:00")
 			setCurrentIndex(0)
-		} catch (error) {
+		} catch {
 			setSubmitMessage("Не удалось отправить заявку")
 		} finally {
 			setIsSubmitting(false)

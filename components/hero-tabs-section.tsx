@@ -26,16 +26,22 @@ type ProviderItem = {
     logo: string | null
 }
 
+type AhunterSuggestion = {
+    value: string
+}
+
+type AhunterResponse = {
+    suggestions?: AhunterSuggestion[]
+}
+
+type ProvidersResponse = {
+    providers?: ProviderItem[]
+}
+
 const TITLES: Record<TabKey, string> = {
     flat: "Домашний интернет в квартиру",
     office: "Домашний интернет для бизнеса",
     house: "Домашний интернет в частный дом",
-}
-
-const FORM_TITLES: Record<TabKey, string> = {
-    flat: "Оставьте заявку на подключение домашнего интернета",
-    office: "Оставьте заявку на подключение интернета для бизнеса",
-    house: "Оставьте заявку на подключение интернета в частный дом",
 }
 
 const getPlural = (number: number, one: string, two: string, five: string) => {
@@ -98,7 +104,7 @@ export default function HeroTabsSection() {
     const [street, setStreet] = React.useState("")
     const [house, setHouse] = React.useState("")
     const [flat, setFlat] = React.useState("")
-    const [suggestions, setSuggestions] = React.useState<any[]>([])
+    const [suggestions, setSuggestions] = React.useState<AhunterSuggestion[]>([])
     const [showSuggestions, setShowSuggestions] = React.useState(false)
     const [isSearching, setIsSearching] = React.useState(false)
 
@@ -117,8 +123,8 @@ export default function HeroTabsSection() {
 
         const cityName = city?.name || ""
         const res = await fetch(`/api/ahunter?query=${encodeURIComponent(query)}&city=${encodeURIComponent(cityName)}`)
-        const data = await res.json()
-        setSuggestions(data.suggestions || [])
+        const data = await res.json() as AhunterResponse
+        setSuggestions(Array.isArray(data.suggestions) ? data.suggestions : [])
         setShowSuggestions(true)
     } catch (e) {
         console.error("Ошибка подсказок", e)
@@ -153,7 +159,7 @@ const handleFind = () => {
             try {
                 const qs = new URLSearchParams({ region: city.region, city: city.name })
                 const res = await fetch(`/api/providers?${qs.toString()}`, { cache: "no-store" })
-                const json = await res.json()
+                const json = await res.json() as ProvidersResponse
                 if (alive) setProviders(Array.isArray(json.providers) ? json.providers : [])
             } catch {
                 if (alive) setProviders([])

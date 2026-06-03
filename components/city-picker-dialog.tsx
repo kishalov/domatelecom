@@ -95,7 +95,7 @@ export default function CityPickerDialog(props: Props) {
 					cache: "no-store",
 				})
 
-				const jsonAny: any = await res.json()
+				const jsonAny = await res.json() as Partial<Payload>
 
 				const popular: CityEntry[] = Array.isArray(jsonAny.popular) ? jsonAny.popular : []
 				const sections: Section[] = Array.isArray(jsonAny.sections) ? jsonAny.sections : []
