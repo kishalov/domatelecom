@@ -68,8 +68,8 @@ export function ExtraServicesSection() {
                                 src="/cameras-bg.png"
                                 alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
+                                sizes="100vw"
                                 className="object-cover"
-                                priority
                             />
                         </div>
 
@@ -79,6 +79,7 @@ export function ExtraServicesSection() {
                                 src="/cameras.png"
                                 alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
+                                sizes="(min-width: 1024px) 50vw, 50vw"
                                 className="object-contain object-right-bottom" 
                             />
                         </div>

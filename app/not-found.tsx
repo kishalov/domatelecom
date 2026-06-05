@@ -29,6 +29,7 @@ export default function NotFound() {
                                 src="/images/cat404.png"
                                 alt="404"
                                 fill
+                                sizes="(min-width: 1024px) 288px, (min-width: 640px) 240px, 160px"
                                 className="object-contain"
                                 priority
                             />

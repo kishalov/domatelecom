@@ -1,7 +1,27 @@
 "use client"
 
+import Image from "next/image"
 import Marquee from "react-fast-marquee"
 import { Card } from "./ui/card"
+
+const partners = [
+	{
+		src: "/partners/mts.png",
+		alt: "Тарифы провайдера МТС - подбор и консультация",
+	},
+	{
+		src: "/partners/bilain.png",
+		alt: "Тарифы провайдера Билайн - подбор и консультация",
+	},
+	{
+		src: "/partners/rostelecom.png",
+		alt: "Тарифы провайдера Ростелеком - подбор и консультация",
+	},
+	{
+		src: "/partners/ufanet.png",
+		alt: "Тарифы провайдера Уфанет - подбор и консультация",
+	},
+]
 
 export function PartnersMarquee() {
 	return (
@@ -19,69 +39,20 @@ export function PartnersMarquee() {
 				className="w-full"
 			>
 				<div className="flex items-center">
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/mts.png"
-							alt="Тарифы провайдера МТС - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/bilain.png"
-							alt="Тарифы провайдера Билайн - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/rostelecom.png"
-							alt="Тарифы провайдера Ростелеком - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/ufanet.png"
-							alt="Тарифы провайдера Уфанет - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/mts.png"
-							alt="Тарифы провайдера МТС - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/bilain.png"
-							alt="Тарифы провайдера Билайн - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/rostelecom.png"
-							alt="Тарифы провайдера Ростелеком - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
-
-					<Card className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]">
-						<img
-							src="/partners/ufanet.png"
-							alt="Тарифы провайдера Уфанет - подбор и консультация"
-							className="max-h-[70%] max-w-[70%] object-contain"
-						/>
-					</Card>
+					{[...partners, ...partners].map((partner, index) => (
+						<Card
+							key={`${partner.src}-${index}`}
+							className="mr-4 flex h-[120px] w-[240px] shrink-0 items-center justify-center sm:mr-6 sm:h-[150px] sm:w-[300px] lg:mr-12 lg:h-[200px] lg:w-[400px]"
+						>
+							<Image
+								src={partner.src}
+								alt={partner.alt}
+								width={220}
+								height={120}
+								className="h-auto max-h-[70%] w-auto max-w-[70%] object-contain"
+							/>
+						</Card>
+					))}
 				</div>
 			</Marquee>
 		</section>

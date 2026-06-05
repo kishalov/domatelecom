@@ -21,6 +21,8 @@ type Payload = {
 	sections: Section[]
 }
 
+type CitiesApiResponse = Partial<Payload>
+
 type Props = {
 	open: boolean
 	onOpenChange: (open: boolean) => void
@@ -91,11 +93,9 @@ export default function CityPickerDialog(props: Props) {
 			setLoading(true)
 
 			try {
-				const res: Response = await fetch("/api/cities", {
-					cache: "no-store",
-				})
+				const res: Response = await fetch("/api/cities")
 
-				const jsonAny: any = await res.json()
+				const jsonAny = (await res.json()) as CitiesApiResponse
 
 				const popular: CityEntry[] = Array.isArray(jsonAny.popular) ? jsonAny.popular : []
 				const sections: Section[] = Array.isArray(jsonAny.sections) ? jsonAny.sections : []

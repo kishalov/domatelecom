@@ -17,8 +17,6 @@ export default function Speedometer({ value }: SpeedometerProps) {
 	const lastTimeRef = useRef<number | null>(null)
 
 	useEffect(() => {
-		valueRef.current = animatedValue
-		velocityRef.current = velocityRef.current
 		lastTimeRef.current = null
 
 		if (frameRef.current !== null) {

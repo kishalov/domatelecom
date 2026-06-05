@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:cities": "node scripts/generate-cities-data.mjs",
+    "prebuild": "npm run generate:cities"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

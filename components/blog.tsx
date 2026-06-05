@@ -50,6 +50,7 @@ export function ArticlesSection() {
                                             : "Разбор пакетных тарифов провайдеров от ДомаТелеком"
                                 }
                                 fill
+                                sizes="(min-width: 1024px) 630px, 100vw"
                                 className="object-cover"
                             />
                         </div>
