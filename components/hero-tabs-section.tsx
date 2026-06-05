@@ -14,7 +14,7 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { MapPin } from "lucide-react"
 import { useCity } from "./city-provider"
 import { useContactForm } from "./form-provider"
@@ -292,6 +292,7 @@ const handleFind = () => {
                     <DialogContent className="sm:max-w-[420px] text-center p-10">
                         <DialogHeader>
                             <DialogTitle className="text-2xl mb-4 text-center">Поиск провайдеров...</DialogTitle>
+                            <DialogDescription className="text-center">Проверяем адрес и подбираем доступные тарифы.</DialogDescription>
                         </DialogHeader>
                         <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                             <div className="bg-primary h-full animate-[progress_2.5s_ease-in-out]" style={{width: '100%'}}></div>

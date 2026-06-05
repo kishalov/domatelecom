@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { Virtuoso } from "react-virtuoso"
@@ -177,6 +177,7 @@ export default function CityPickerDialog(props: Props) {
 						<DialogTitle className="text-2xl font-semibold">
 							Введите город или регион
 						</DialogTitle>
+						<DialogDescription>Выберите город из списка или найдите его по названию.</DialogDescription>
 					</DialogHeader>
 
 					<div className="mt-4">

@@ -1,12 +1,10 @@
 "use client"
 
-import * as React from "react"
 import { Button } from "./ui/button"
 import { useContactForm } from "./form-provider"
 
 export function SpeedTestSection() {
     const { openContactForm } = useContactForm()
-    const [speedTestVisible, setSpeedTestVisible] = React.useState<boolean>(false)
 
     return (
         <section className="w-full bg-background py-10 sm:py-16 lg:py-24">
@@ -25,28 +23,13 @@ export function SpeedTestSection() {
                 <div className="flex flex-col gap-6 lg:gap-8">
                     {/* Виджет теста скорости */}
                     <div className="w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-primary/5 border border-slate-100 bg-white">
-                        {speedTestVisible ? (
-                            <iframe
-                                src="https://openspeedtest.com/speedtest"
-                                className="h-[350px] w-full border-0 sm:h-[450px] lg:h-[520px]"
-                                allow="fullscreen"
-                                loading="lazy"
-                                title="Проверка скорости интернета"
-                            />
-                        ) : (
-                            <div className="flex h-[350px] w-full flex-col items-center justify-center gap-4 px-5 text-center sm:h-[450px] lg:h-[520px]">
-                                <p className="max-w-2xl text-lg font-semibold sm:text-2xl">
-                                    Тест скорости загрузится только после запуска, чтобы не замедлять страницу внешним виджетом.
-                                </p>
-                                <Button
-                                    type="button"
-                                    onClick={() => setSpeedTestVisible(true)}
-                                    className="h-12 rounded-xl px-8 text-base sm:h-14 sm:text-lg"
-                                >
-                                    Запустить тест скорости
-                                </Button>
-                            </div>
-                        )}
+                        <iframe
+                            src="https://openspeedtest.com/speedtest"
+                            className="h-[350px] w-full border-0 sm:h-[450px] lg:h-[520px]"
+                            allow="fullscreen"
+                            loading="lazy"
+                            title="Проверка скорости интернета"
+                        />
                     </div>
 
                     {/* Кнопка действия */}

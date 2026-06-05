@@ -3,6 +3,7 @@
 import {
 	Dialog,
 	DialogContent,
+	DialogDescription,
 	DialogHeader,
 	DialogTitle,
 } from "@/components/ui/dialog"
@@ -32,6 +33,7 @@ export function ContactFormDialog({
 			<DialogContent className="w-[calc(100%-24px)] max-w-[560px] border-0 bg-transparent p-0 shadow-none sm:w-full">
 				<DialogHeader className="sr-only">
 					<DialogTitle>{title}</DialogTitle>
+					<DialogDescription>Введите номер телефона, чтобы отправить заявку.</DialogDescription>
 				</DialogHeader>
 
 				<ContactForm
