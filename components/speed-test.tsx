@@ -1,3 +1,5 @@
+
+
 "use client"
 
 import { Button } from "./ui/button"
@@ -27,8 +29,6 @@ export function SpeedTestSection() {
                             src="https://openspeedtest.com/speedtest"
                             className="h-[350px] w-full border-0 sm:h-[450px] lg:h-[520px]"
                             allow="fullscreen"
-                            loading="lazy"
-                            title="Проверка скорости интернета"
                         />
                     </div>
 

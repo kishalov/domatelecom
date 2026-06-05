@@ -26,7 +26,7 @@ export default function NotFound() {
                         {/* ИСПРАВЛЕНО: Картинка теперь еще компактнее на планшетах (h-32 -> h-48) */}
                         <div className="relative mb-2 h-32 w-full max-w-[240px] xs:h-40 sm:h-48 md:h-56 lg:h-72">
                             <Image
-                                src="/images/cat404.png"
+                                src="/images/cat404.webp"
                                 alt="404"
                                 fill
                                 sizes="(min-width: 1024px) 288px, (min-width: 640px) 240px, 160px"

@@ -26,7 +26,7 @@ function providerLogoByName(name: string): string | null {
 	if (n === "новотелеком") return "/providery/novtele.svg"
 	if (n === "акадо") return "/providery/akado.svg"
 	if (n === "пакт") return "/providery/pakt.svg"
-	if (n === "алмател") return "/providery/almatel.png"
+	if (n === "алмател") return "/providery/almatel.webp"
 	if (n === "таттелеком") return "/providery/tattelecom.png"
 	if (n === "яр.com") return "/providery/yarcom.png"
 	if (n === "уфанет") return "/providery/ufanet.png"

@@ -65,7 +65,7 @@ export function ExtraServicesSection() {
                         {/* 1. ФОН (Background) */}
                         <div className="absolute inset-0 z-0">
                             <Image
-                                src="/cameras-bg.png"
+                                src="/cameras-bg.webp"
                                 alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
                                 sizes="100vw"
