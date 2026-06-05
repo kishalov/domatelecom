@@ -65,11 +65,11 @@ export function ExtraServicesSection() {
                         {/* 1. ФОН (Background) */}
                         <div className="absolute inset-0 z-0">
                             <Image
-                                src="/cameras-bg.png"
+                                src="/cameras-bg.webp"
                                 alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
+                                sizes="100vw"
                                 className="object-cover"
-                                priority
                             />
                         </div>
 
@@ -79,6 +79,7 @@ export function ExtraServicesSection() {
                                 src="/cameras.png"
                                 alt="Видеонаблюдение от провайдеров-партнеров"
                                 fill
+                                sizes="(min-width: 1024px) 50vw, 50vw"
                                 className="object-contain object-right-bottom" 
                             />
                         </div>

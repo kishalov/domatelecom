@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { Virtuoso } from "react-virtuoso"
@@ -20,6 +20,8 @@ type Payload = {
 	popular: CityEntry[]
 	sections: Section[]
 }
+
+type CitiesApiResponse = Partial<Payload>
 
 type Props = {
 	open: boolean
@@ -91,11 +93,9 @@ export default function CityPickerDialog(props: Props) {
 			setLoading(true)
 
 			try {
-				const res: Response = await fetch("/api/cities", {
-					cache: "no-store",
-				})
+				const res: Response = await fetch("/api/cities")
 
-				const jsonAny: any = await res.json()
+				const jsonAny = (await res.json()) as CitiesApiResponse
 
 				const popular: CityEntry[] = Array.isArray(jsonAny.popular) ? jsonAny.popular : []
 				const sections: Section[] = Array.isArray(jsonAny.sections) ? jsonAny.sections : []
@@ -177,6 +177,7 @@ export default function CityPickerDialog(props: Props) {
 						<DialogTitle className="text-2xl font-semibold">
 							Введите город или регион
 						</DialogTitle>
+						<DialogDescription>Выберите город из списка или найдите его по названию.</DialogDescription>
 					</DialogHeader>
 
 					<div className="mt-4">

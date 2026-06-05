@@ -1,13 +1,12 @@
 "use client"
 
 import * as React from "react"
-import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTitle,
-} from "@/components/ui/dialog"
-import { ContactForm } from "./form"
+import dynamic from "next/dynamic"
+
+const ContactFormDialog = dynamic(
+	() => import("./contact-form-dialog").then((mod) => mod.ContactFormDialog),
+	{ ssr: false }
+)
 
 type OpenContactFormOptions = {
 	title?: string
@@ -53,45 +52,43 @@ export function ContactFormProvider({
 		setOpen(false)
 	}, [])
 
-const handleSubmit = React.useCallback(async (phone: string): Promise<void> => {
-	if (submitting) {
-		return
-	}
-
-	try {
-		setSubmitting(true)
-
-		const res: Response = await fetch("/api/contact", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				phone,
-				title,
-				source,
-				buttonText,
-				placeholder,
-				page: typeof window !== "undefined" ? window.location.pathname : "",
-			}),
-		})
-
-		const data = await res.json()
-
-		console.log("SERVER RESPONSE:", data)
-
-		if (!res.ok || !data.ok) {
-			console.error("ERROR:", data)
+	const handleSubmit = React.useCallback(async (phone: string): Promise<void> => {
+		if (submitting) {
 			return
 		}
 
-		setOpen(false)
-	} catch (error) {
-		console.error("REQUEST ERROR:", error)
-	} finally {
-		setSubmitting(false)
-	}
-}, [buttonText, placeholder, source, submitting, title])
+		try {
+			setSubmitting(true)
+
+			const res: Response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					phone,
+					title,
+					source,
+					buttonText,
+					placeholder,
+					page: typeof window !== "undefined" ? window.location.pathname : "",
+				}),
+			})
+
+			const data = (await res.json()) as ContactApiResponse
+
+			if (!res.ok || !data.ok) {
+				console.error("Contact request failed:", data.error ?? data.message ?? data)
+				return
+			}
+
+			setOpen(false)
+		} catch (error) {
+			console.error("Contact request error:", error)
+		} finally {
+			setSubmitting(false)
+		}
+	}, [buttonText, placeholder, source, submitting, title])
 
 	return (
 		<ContactFormContext.Provider
@@ -102,21 +99,17 @@ const handleSubmit = React.useCallback(async (phone: string): Promise<void> => {
 		>
 			{children}
 
-			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogContent className="w-[calc(100%-24px)] max-w-[560px] border-0 bg-transparent p-0 shadow-none sm:w-full">
-					<DialogHeader className="sr-only">
-						<DialogTitle>{title}</DialogTitle>
-					</DialogHeader>
-
-					<ContactForm
-						title={title}
-						buttonText={submitting ? "Отправка..." : buttonText}
-						placeholder={placeholder}
-						disabled={submitting}
-						onSubmit={handleSubmit}
-					/>
-				</DialogContent>
-			</Dialog>
+			{open ? (
+				<ContactFormDialog
+					open={open}
+					onOpenChange={setOpen}
+					title={title}
+					buttonText={submitting ? "Отправка..." : buttonText}
+					placeholder={placeholder}
+					disabled={submitting}
+					onSubmit={handleSubmit}
+				/>
+			) : null}
 		</ContactFormContext.Provider>
 	)
 }

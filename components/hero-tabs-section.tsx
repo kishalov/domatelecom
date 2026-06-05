@@ -14,7 +14,7 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { MapPin } from "lucide-react"
 import { useCity } from "./city-provider"
 import { useContactForm } from "./form-provider"
@@ -26,16 +26,18 @@ type ProviderItem = {
     logo: string | null
 }
 
+type AddressSuggestion = {
+    value: string
+}
+
+type AhunterResponse = {
+    suggestions?: AddressSuggestion[]
+}
+
 const TITLES: Record<TabKey, string> = {
     flat: "Домашний интернет в квартиру",
     office: "Домашний интернет для бизнеса",
     house: "Домашний интернет в частный дом",
-}
-
-const FORM_TITLES: Record<TabKey, string> = {
-    flat: "Оставьте заявку на подключение домашнего интернета",
-    office: "Оставьте заявку на подключение интернета для бизнеса",
-    house: "Оставьте заявку на подключение интернета в частный дом",
 }
 
 const getPlural = (number: number, one: string, two: string, five: string) => {
@@ -98,7 +100,7 @@ export default function HeroTabsSection() {
     const [street, setStreet] = React.useState("")
     const [house, setHouse] = React.useState("")
     const [flat, setFlat] = React.useState("")
-    const [suggestions, setSuggestions] = React.useState<any[]>([])
+    const [suggestions, setSuggestions] = React.useState<AddressSuggestion[]>([])
     const [showSuggestions, setShowSuggestions] = React.useState(false)
     const [isSearching, setIsSearching] = React.useState(false)
 
@@ -117,8 +119,8 @@ export default function HeroTabsSection() {
 
         const cityName = city?.name || ""
         const res = await fetch(`/api/ahunter?query=${encodeURIComponent(query)}&city=${encodeURIComponent(cityName)}`)
-        const data = await res.json()
-        setSuggestions(data.suggestions || [])
+        const data = (await res.json()) as AhunterResponse
+        setSuggestions(Array.isArray(data.suggestions) ? data.suggestions : [])
         setShowSuggestions(true)
     } catch (e) {
         console.error("Ошибка подсказок", e)
@@ -152,7 +154,7 @@ const handleFind = () => {
             setLoading(true)
             try {
                 const qs = new URLSearchParams({ region: city.region, city: city.name })
-                const res = await fetch(`/api/providers?${qs.toString()}`, { cache: "no-store" })
+                const res = await fetch(`/api/providers?${qs.toString()}`)
                 const json = await res.json()
                 if (alive) setProviders(Array.isArray(json.providers) ? json.providers : [])
             } catch {
@@ -290,6 +292,7 @@ const handleFind = () => {
                     <DialogContent className="sm:max-w-[420px] text-center p-10">
                         <DialogHeader>
                             <DialogTitle className="text-2xl mb-4 text-center">Поиск провайдеров...</DialogTitle>
+                            <DialogDescription className="text-center">Проверяем адрес и подбираем доступные тарифы.</DialogDescription>
                         </DialogHeader>
                         <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                             <div className="bg-primary h-full animate-[progress_2.5s_ease-in-out]" style={{width: '100%'}}></div>

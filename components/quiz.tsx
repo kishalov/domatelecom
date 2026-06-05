@@ -170,6 +170,7 @@ export default function QuizSection() {
 			setTime("00:00")
 			setCurrentIndex(0)
 		} catch (error) {
+			console.error("Quiz submit error:", error)
 			setSubmitMessage("Не удалось отправить заявку")
 		} finally {
 			setIsSubmitting(false)

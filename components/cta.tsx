@@ -1,18 +1,20 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import DoubleDigitRoller from "./double-digit-roller"
 import { useContactForm } from "./form-provider"
 
+const INITIAL_SECONDS = 15 * 24 * 60 * 60
+
 export function CtaPromoSection() {
-    const INITIAL = 15 * 24 * 60 * 60
-    const [secondsLeft, setSecondsLeft] = useState(INITIAL)
+    const [secondsLeft, setSecondsLeft] = useState(INITIAL_SECONDS)
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setSecondsLeft((prev) => (prev <= 1 ? INITIAL : prev - 1))
+            setSecondsLeft((prev) => (prev <= 1 ? INITIAL_SECONDS : prev - 1))
         }, 1000)
 
         return () => clearInterval(interval)
@@ -52,10 +54,12 @@ export function CtaPromoSection() {
         aria-hidden="true"
       />
 
-      <img
-        src="/cta-cat-transparent.png" 
+      <Image
+        src="/cta-cat-transparent.png"
         alt="Лучший выбор провайдеров в ДомаТелеком"
-        className="absolute min-w-[350px] bottom-[-50%] right-0 sm:bottom-[-120%] sm:right-[5%] sm:min-w-[500px]"
+        width={500}
+        height={500}
+        className="absolute min-w-[350px] bottom-[-50%] right-0 h-auto w-auto sm:bottom-[-120%] sm:right-[5%] sm:min-w-[500px]"
       />
     </div>
   </CardContent>

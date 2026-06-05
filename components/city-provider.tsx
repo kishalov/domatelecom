@@ -1,7 +1,11 @@
 "use client"
 
 import * as React from "react"
-import CityPickerDialog from "@/components/city-picker-dialog"
+import dynamic from "next/dynamic"
+
+const CityPickerDialog = dynamic(() => import("@/components/city-picker-dialog"), {
+	ssr: false,
+})
 
 export type CityEntry = { name: string; region: string | null }
 
@@ -19,10 +23,6 @@ const STORAGE_KEY: string = "domatelecom_city_v1"
 export function CityProvider(props: { children: React.ReactNode }) {
 	const [city, setCityState] = React.useState<CityEntry | null>(null)
 	const [open, setOpen] = React.useState<boolean>(false)
-
-	React.useEffect(() => {
-		void fetch("/api/cities")
-	}, [])
 
 	React.useEffect(() => {
 		try {
@@ -63,12 +63,14 @@ export function CityProvider(props: { children: React.ReactNode }) {
 		<CityContext.Provider value={ctx}>
 			{props.children}
 
-			<CityPickerDialog
-				open={open}
-				onOpenChange={setOpen}
-				value={city}
-				onSelect={setCity}
-			/>
+			{open ? (
+				<CityPickerDialog
+					open={open}
+					onOpenChange={setOpen}
+					value={city}
+					onSelect={setCity}
+				/>
+			) : null}
 		</CityContext.Provider>
 	)
 }

@@ -10,7 +10,7 @@ const articles = [
         id: 1,
         title: "Недорогие гигабитные роутеры",
         desc: "Собрали надёжные и недорогие модели для быстрого интернета.",
-        img: "/article-1.png",
+        img: "/article-1.webp",
         link: "#",
         linkLabel: "Смотреть подборку",
     },
@@ -18,7 +18,7 @@ const articles = [
         id: 2,
         title: "Правильное расположение Wi-Fi роутера влияет на интернет",
         desc: "Вот несколько рекомендаций, которые помогут обеспечить оптимальное покрытие сети:",
-        img: "/article-2.png",
+        img: "/article-2.webp",
         link: "#",
         linkLabel: "Читать дальше",
     },
@@ -26,7 +26,7 @@ const articles = [
         id: 3,
         title: "Актуален ли тариф «Интернет + ТВ», если вы редко пользуетесь телевизором?",
         desc: "",
-        img: "/article-3.png",
+        img: "/article-3.webp",
         link: "#",
         linkLabel: "Читать дальше",
     },
@@ -50,6 +50,7 @@ export function ArticlesSection() {
                                             : "Разбор пакетных тарифов провайдеров от ДомаТелеком"
                                 }
                                 fill
+                                sizes="(min-width: 1024px) 630px, 100vw"
                                 className="object-cover"
                             />
                         </div>
